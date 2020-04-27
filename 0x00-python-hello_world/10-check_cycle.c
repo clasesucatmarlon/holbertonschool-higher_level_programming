@@ -14,7 +14,7 @@ int check_cycle(listint_t *list)
 	aux1 = list;
 	aux2 = list;
 
-	while (aux1 && aux2)
+	while (aux2 && aux1 && aux1->next)
 	{
 		aux2 = aux2->next;
 		aux1 = aux1->next->next;
