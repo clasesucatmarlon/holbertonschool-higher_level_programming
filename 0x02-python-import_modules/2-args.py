@@ -8,14 +8,12 @@ def print_arg(long):
 
 if __name__ == "__main__":
     import sys
-    # determine and print numbers of arguments input
     long = len(sys.argv)
     if long == 1:
         print("{:d} arguments.".format(long - 1))
-    elif long == 1:
-        print("{:d} arguments.".format(long - 1))
+    elif long == 2:
+        print("{:d} argument.".format(long - 1))
     else:
         print("{:d} arguments.".format(long - 1))
 
-# Call function to print arguments
-print_arg(long)
+    print_arg(long)
