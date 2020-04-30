@@ -12,8 +12,8 @@ if __name__ == "__main__":
     if long == 1:
         print("{:d} arguments.".format(long - 1))
     elif long == 2:
-        print("{:d} argument.".format(long - 1))
+        print("{:d} argument:".format(long - 1))
     else:
-        print("{:d} arguments.".format(long - 1))
+        print("{:d} arguments:".format(long - 1))
 
     print_arg(long)
