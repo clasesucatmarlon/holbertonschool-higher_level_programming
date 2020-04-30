@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-program = 'a = "#pythoniscool"\nprint(a)'
-exec(program)
+exec("import subprocess\nsubprocess.call(['echo','hola'])")
