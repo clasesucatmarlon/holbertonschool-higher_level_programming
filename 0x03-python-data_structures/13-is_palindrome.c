@@ -11,8 +11,6 @@ int is_palindrome(listint_t **head)
 	listint_t *aux1 = *head, *aux2 = *head;
 	int m = 0, middle, mmm, k;
 
-	if (head == NULL || *head == NULL)
-		return (0);
 	if (!*head)
 		return (1);
 
