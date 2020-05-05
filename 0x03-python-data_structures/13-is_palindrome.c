@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int m, middle, mmm, k;
 
 	if (!*head)
-		return (0);
+		return (1);
 	m = 0;
 
 	aux1 = *head;
