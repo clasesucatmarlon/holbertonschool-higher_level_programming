@@ -37,13 +37,9 @@ int is_palindrome(listint_t **head)
 		aux2 = aux2->next;
 		aux1 = aux2;
 		for (k = 0; k < mmm; k++)
-		{
 			aux1 = aux1->next;
-		}
 		if (aux2->n != aux1->n)
-		{
 			return (0);
-		}
 		m++;
 		mmm = mmm - 2;
 	}
