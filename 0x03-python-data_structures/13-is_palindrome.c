@@ -21,6 +21,8 @@ int is_palindrome(listint_t **head)
 	}
 	if (aux1->n != (*head)->n)
 		return (0);
+	if (m == 1)
+		return (1);
 
 	middle = m / 2;
 	mmm = m - 2;
