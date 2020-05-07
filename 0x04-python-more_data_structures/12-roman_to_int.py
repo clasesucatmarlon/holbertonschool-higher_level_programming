@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-def roman_to_int(roman_string):
-    dic = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
+dic = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
 
+
+def roman_to_int(roman_string):
     if not isinstance(roman_string, str):
         return 0
 
@@ -16,12 +17,12 @@ def roman_to_int(roman_string):
         aux2 = dic[roman_string[i + 1]]
 
         if aux1 == aux2:
-            sum = sum + aux2 + aux1
-            i = i + 1
+            sum += aux2 + aux1
+            i += 1
         elif aux1 < aux2:
-            sum = sum + aux2 - aux1
-            i = i + 1
+            sum += aux2 - aux1
+            i += 1
         else:
-            sum = sum + aux1
+            sum += aux1
         i = i + 1
     return (sum)
