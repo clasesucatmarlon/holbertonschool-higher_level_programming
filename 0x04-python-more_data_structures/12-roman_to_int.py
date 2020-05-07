@@ -5,9 +5,6 @@ def roman_to_int(roman_string):
     if not isinstance(roman_string, str):
         return 0
 
-    if roman_string is None:
-        return 0
-
     sum = 0
     i = 0
     if len(roman_string) == 1:
