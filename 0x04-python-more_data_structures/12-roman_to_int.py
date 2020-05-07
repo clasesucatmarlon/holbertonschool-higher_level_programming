@@ -5,15 +5,11 @@ def roman_to_int(roman_string):
     if not isinstance(roman_string, str):
         return 0
 
-    sum = 0
-    i = 0
-
-    if not isinstance(roman_string, str):
+    if roman_string is None:
         return 0
 
-    if roman_string is None or roman_string.isnumeric() == True:
-        return None
-
+    sum = 0
+    i = 0
     if len(roman_string) == 1:
         sum += dic[roman_string[0]]
         return sum
