@@ -5,12 +5,11 @@ def get_roman_value(char=''):
 
 
 def roman_to_int(roman_string):
-    if not roman_string.isupper():
-        return 0
     if not roman_string or type(roman_string) != str:
         return 0
 
     aux = list(map(get_roman_value, list(roman_string)))
+    print("aux = {} ".format(aux))
     sum = 0
     for i in range(0, len(aux)):
         if aux[i] > aux[i - 1] and i > 0:
