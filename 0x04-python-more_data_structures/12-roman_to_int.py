@@ -7,17 +7,14 @@ def get_roman_value(char=''):
 def roman_to_int(roman_string):
     if not roman_string.isupper():
         return 0
-    if not roman_string:
+    if not roman_string or type(roman_string) != str:
         return 0
-    if isinstance(roman_string, str):
-        aux = list(map(get_roman_value, list(roman_string)))
-        sum = 0
-        for i in range(0, len(aux) - 1):
-            if aux[i] < aux[i + 1] and i > 0:
-                sum -= aux[i]
-            else:
-                sum += aux[i]
-        sum += aux[len(aux) - 1]
-        return sum
-    else:
-        return 0
+
+    aux = list(map(get_roman_value, list(roman_string)))
+    sum = 0
+    for i in range(0, len(aux)):
+        if aux[i] > aux[i - 1] and i > 0:
+            sum += aux[i] - (2 * aux[i - 1])
+        else:
+            sum += aux[i]
+    return sum
