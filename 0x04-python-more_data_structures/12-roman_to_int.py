@@ -12,8 +12,7 @@ def roman_to_int(roman_string):
 
     sum, i = 0, 0
     if len(roman_string) == 1:
-        sum += dic[roman_string[0]]
-        return sum
+        return dic[roman_string[0]]
 
     while i < len(roman_string) - 1:
         aux1 = dic[roman_string[i]]
