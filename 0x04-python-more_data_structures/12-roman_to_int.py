@@ -13,7 +13,7 @@ def roman_to_int(roman_string):
         aux1 = dic[roman_string[i]]
         aux2 = dic[roman_string[i + 1]]
 
-        if aux1 == aux2:
+        if aux1 >= aux2:
             sum += aux2 + aux1
             i += 1
         elif aux1 < aux2:
