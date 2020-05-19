@@ -62,6 +62,8 @@ What you should learn from this project:
 
 ### [10. CPython #2: PyFloatObject](./103-python.c)
 * Create three C functions that print some basic info about Python lists, Python bytes an Python float objects.
+* Compile: gcc -Wall -Werror -Wextra -pedantic -std=c99 -shared -Wl,-soname,libPython.so -o libPython.so -fPIC -I/usr/include/python3.4 103-python.c
+* Execute: ./103-tests.py 
 
 
 
