@@ -3,6 +3,9 @@
 
 
 class Square:
+    """ Class square
+    """
+
     def __init__(self, size=0):
         """Inizialitation of variables
         Arg self identificador
