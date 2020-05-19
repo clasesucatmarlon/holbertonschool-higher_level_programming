@@ -113,7 +113,6 @@ What you should learn from this project:
 
  13     >>  103 LOAD_FAST                2 (result)
             106 RETURN_VALUE
-
 </pre>
 
 ### [10. CPython #2: PyFloatObject](./103-python.c)
