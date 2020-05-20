@@ -79,10 +79,10 @@ class Square:
         """
         x = ""
         if self.__size == 0:
-            print()
+            x += ""
         else:
             for row in range(self.__position[1]):
-                x += ""
+                x += "\n"
             for row in range(0, self.__size):
                 x += " " * self.__position[0] + "#" * self.__size + "\n"
             if x[-1] == "\n":
