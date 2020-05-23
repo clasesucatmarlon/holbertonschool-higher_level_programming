@@ -19,15 +19,6 @@ Traceback (most recent call last):
       ...
 ZeroDivisionError: division by zero
 
-Base_matrix2
----------------------------------------------
->>> matrix = [
-...  [1]
-... ]
-
->>> matrix_divided(matrix, 2)
-[[0.5]]
-
 Base_matrix3
 ---------------------------------------------
 >>> matrix = [
@@ -38,18 +29,9 @@ Base_matrix3
 >>> matrix_divided(matrix, 3.14)
 [[0.32, 0.64, 0.96], [1.27, 1.59, 1.91]]
 
->>> matrix_divided(matrix, float("inf"))
-[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
- 
-
 Invalid Arguments
 -----------------
 >>> matrix_divided(matrix, 'a')
-Traceback (most recent call last):
-      ...
-TypeError: div must be a number
-
->>> matrix_divided(matrix, "hello")
 Traceback (most recent call last):
       ...
 TypeError: div must be a number
@@ -64,16 +46,6 @@ Traceback (most recent call last):
       ...
 TypeError: div must be a number
 
->>> matrix_divided(0, matrix)
-Traceback (most recent call last):
-      ...
-TypeError: div must be a number
-
->>> matrix_divided(matrix, matrix)
-Traceback (most recent call last):
-      ...
-TypeError: div must be a number
-
 >>> matrix_divided("Hello", 0)
 Traceback (most recent call last):
       ...
@@ -84,26 +56,10 @@ Traceback (most recent call last):
       ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> matrix_divided(0, 0)
-Traceback (most recent call last):
-      ...
-ZeroDivisionError: division by zero
-
 BASE_MATRIX4
 ---------------------------------------------
 >>> matrix = [
 ...  {1: "ll"}
-... ]
-
->>> matrix_divided(matrix, 2)
-Traceback (most recent call last):
-      ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-BASE_MATRIX5
----------------------------------------------
->>> matrix = [
-...  {1, 2, 3}
 ... ]
 
 >>> matrix_divided(matrix, 2)
@@ -139,16 +95,6 @@ Traceback (most recent call last):
       ...
 TypeError: div must be a number
 
->>> matrix_divided(matrix, False)
-Traceback (most recent call last):
-      ...
-TypeError: div must be a number
-
->>> matrix_divided([[1, 2, 3]], {1, 2, 3})
-Traceback (most recent call last):
-      ...
-TypeError: div must be a number
-
 >>> matrix_divided([[1, 2, 3]], {1: "lol"})
 Traceback (most recent call last):
       ...
@@ -156,23 +102,9 @@ TypeError: div must be a number
  
 EMPTY MATRIX
 ---------------------------------------------
->>> matrix = []
-
->>> matrix_divided(matrix, 9)
-Traceback (most recent call last):
-      ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
 >>> matrix = [[]]
 
->>> matrix_divided(matrix, 0)
-Traceback (most recent call last):
-      ...
-TypeError: matrix must be a matrix (list of lists) of integers/floats
-
->>> matrix = [[], []]
-
->>> matrix_divided(matrix, 0)
+>>> matrix_divided(matrix, 2)
 Traceback (most recent call last):
       ...
 TypeError: matrix must be a matrix (list of lists) of integers/floats
