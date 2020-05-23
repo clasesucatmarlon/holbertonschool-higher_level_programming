@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-"""
-Unittest determinate max value integer of list
-
+"""Unittest for max_integer([..])
 """
 import unittest
-max_integer = __import__("6-max_integer").max_integer
+max_integer = __import__('6-max_integer').max_integer
 
 
-class TestUnitary(unittest.TestCase):
+class TestMaxInteger(unittest.TestCase):
     """
     Test max integer to list
 
@@ -50,3 +48,28 @@ class TestUnitary(unittest.TestCase):
     def test_arg_noargs(self):
         """test no arguments"""
         self.assertIs(max_integer(), None)
+
+    def test_error(self):
+        """test string"""
+        result = max_integer("sad")
+        self.assertRaises(Exception, result)
+
+    def test_2(self):
+        """test list with string"""
+        result = max_integer(["hola"])
+        self.assertRaises(Exception, result)
+
+    def test_3(self):
+        """test tuple"""
+        result = max_integer((2, 3))
+        self.assertRaises(TypeError, result)
+
+    def test_4(self):
+        """test structure"""
+        result = max_integer({})
+        self.assertRaises(Exception, result)
+
+    def test_5(self):
+        """test no list with None"""
+        result = max_integer([None])
+        self.assertRaises(Exception, result)
