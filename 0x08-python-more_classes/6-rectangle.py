@@ -15,8 +15,8 @@ class Rectangle:
             width {int} -- [description] (default: {0})
             height {int} -- [description] (default: {0})
         """
-        self.width = width
         self.height = height
+        self.width = width
         Rectangle.number_of_instances += 1
 
     @property
@@ -77,7 +77,7 @@ class Rectangle:
         Returns:
             [type] -- [area]
         """
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """[summary]
@@ -85,9 +85,9 @@ class Rectangle:
         Returns:
             [type] -- [perimeter]
         """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
-        return (self.width * 2) + (self.height * 2)
+        return (self.__width * 2) + (self.__height * 2)
 
     def __str__(self):
         """[summary]
@@ -95,11 +95,16 @@ class Rectangle:
         Returns:
             [type] -- [rectangle]
         """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
-        size = "#" * self.width
-
-        return (size + "\n") * self.height
+        size = "#" * self.__width
+        string = ""
+        for i in range(self.__height):
+            if i == self.__height - 1:
+                string += size
+            else:
+                string += (size + "\n")
+        return string
 
     def __repr__(self):
         """[summary]
