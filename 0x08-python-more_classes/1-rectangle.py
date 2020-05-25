@@ -8,12 +8,10 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        """[summary]
+        """Initialize rectangle
 
-        Keyword Arguments:
-            width {int} -- [description] (default: {0})
-            height {int} -- [description] (default: {0})
         """
+
         self.height = height
         self.width = width
 
