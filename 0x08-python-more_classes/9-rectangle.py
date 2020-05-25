@@ -90,6 +90,20 @@ class Rectangle:
             return 0
         return (self.__width * 2) + (self.__height * 2)
 
+    @classmethod
+    def square(cls, size=0):
+        """[summary]
+
+        Keyword Arguments:
+            size {int} -- [description] (default: {0})
+
+        Returns:
+            [type] -- [description]
+        """
+        height = size
+        width = size
+        return cls(height, width)
+
     def __str__(self):
         """[summary]
 
@@ -143,17 +157,3 @@ class Rectangle:
         if rect_1.area() == rect_2.area() or rect_1.area() > rect_2.area():
             return (rect_1)
         return rect_2
-
-    @classmethod
-    def square(cls, size=0):
-        """[summary]
-
-        Keyword Arguments:
-            size {int} -- [description] (default: {0})
-
-        Returns:
-            [type] -- [description]
-        """
-        height = size
-        width = size
-        return cls(height, width)
