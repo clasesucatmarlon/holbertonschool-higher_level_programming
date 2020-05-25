@@ -8,8 +8,14 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
-        self.width = width
+        """[summary]
+
+        Keyword Arguments:
+            width {int} -- [description] (default: {0})
+            height {int} -- [description] (default: {0})
+        """
         self.height = height
+        self.width = width
 
     @property
     def width(self):
