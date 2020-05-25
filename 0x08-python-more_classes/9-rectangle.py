@@ -154,4 +154,6 @@ class Rectangle:
         Returns:
             [type] -- [description]
         """
+        height = size
+        widht = size
         return cls(height, widht)
