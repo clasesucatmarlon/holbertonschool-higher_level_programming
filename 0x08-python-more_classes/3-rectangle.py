@@ -14,8 +14,8 @@ class Rectangle:
             width {int} -- [description] (default: {0})
             height {int} -- [description] (default: {0})
         """
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
@@ -93,8 +93,13 @@ class Rectangle:
         Returns:
             [type] -- [rectangle]
         """
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
-        size = "#" * self.width
-
-        return (size + "\n") * self.height
+        size = "#" * self.__width
+        string = ""
+        for i in range(self.__height):
+            if i == self.__height - 1:
+                string += size
+            else:
+                string += (size + "\n")
+        return string
