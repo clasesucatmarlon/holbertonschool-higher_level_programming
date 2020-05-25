@@ -168,6 +168,4 @@ class Rectangle:
         Returns:
             [type] -- [description]
         """
-        height = size
-        width = size
-        return cls(size, size)
+        return (Rectangle(size, size))
