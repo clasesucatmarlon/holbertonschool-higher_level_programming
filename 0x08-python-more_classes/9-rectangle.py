@@ -146,4 +146,12 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        """[summary]
+
+        Keyword Arguments:
+            size {int} -- [description] (default: {0})
+
+        Returns:
+            [type] -- [description]
+        """
         return Rectangle(size, size)
