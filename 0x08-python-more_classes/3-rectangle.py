@@ -88,6 +88,11 @@ class Rectangle:
         return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
+        """[summary]
+
+        Returns:
+            [type] -- [rectangle]
+        """
         if self.width == 0 or self.height == 0:
             return ""
         size = "#" * self.width
