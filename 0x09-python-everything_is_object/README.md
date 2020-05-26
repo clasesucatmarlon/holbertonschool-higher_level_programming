@@ -261,23 +261,25 @@ a is b
 </pre>
 
 ### [27. Richard Sim's special #3](./27-answer.txt)
-* >>> id(a)
+<pre>
+>>> id(a)
 139926795932424
 >>> a
 [1, 2, 3, 4]
 >>> a = a + [5]
 >>> id(a)
-
+</pre>
 
 
 ### [28. Richard Sim's special #4](./28-answer.txt)
-* >>> a
+<pre>
+>>> a
 [1, 2, 3]
 >>> id (a)
 139926795932424
 >>> a += [4]
 >>> id(a)
-
+</pre>
 
 
 ### [29. Python3: Mutable, Immutable... everything is object!](./100-magic_string.py)
