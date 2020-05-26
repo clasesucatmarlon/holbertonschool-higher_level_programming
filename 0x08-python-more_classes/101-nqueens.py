@@ -52,7 +52,7 @@ def validate_args():
 
 
 def main():
-    """define program main 
+    """define program main
     """
     n = validate_args()
     queens = []
