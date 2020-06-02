@@ -2,49 +2,50 @@ The 1-My list module
 ======================
 import file:
 
->>> MyList = __import__('1-l').MyList
+>>> MyList = __import__('1-my_list').MyList
 
 
 test empty list
 -----------------------------
->>> l = MyList()
->>> l.print_sorted()
+>>> my_list = MyList()
+>>> my_list.print_sorted()
 []
 
 
 
 test three items
 -----------------------------
->>> l.append(3)
->>> l.append(21)
->>> l.append(4)
->>> print(l)
+>>> my_list.append(3)
+>>> my_list.append(21)
+>>> my_list.append(4)
+>>> print(my_list)
 [3, 21, 4]
 
->>> l.print_sorted()
+>>> my_list.print_sorted()
 [3, 4, 21]
 
 
 test negative items
 -----------------------------
->>> l = MyList()
->>> l.append(-3)
->>> l.append(-21)
->>> l.append(-4)
->>> l.print_sorted()
+>>> my_list = MyList()
+>>> my_list.append(-3)
+>>> my_list.append(-21)
+>>> my_list.append(-4)
+>>> my_list.print_sorted()
 [-21, -4, -3]
 
 
 test negative and positives items
 ---------------------------------------------
->>> l = MyList()
->>> l.append(3)
->>> l.append(-21)
->>> l.append(-4)
->>> l.append(-3)
->>> l.append(21)
->>> l.append(4)
->>> l.append(-7)
->>> l.print_sorted()
+>>> my_list = MyList()
+>>> my_list.append(3)
+>>> my_list.append(-21)
+>>> my_list.append(-4)
+>>> my_list.append(-3)
+>>> my_list.append(21)
+>>> my_list.append(4)
+>>> my_list.append(-7)
+>>> my_list.print_sorted()
+[-21, -7, -4, -3, 3, 4, 21]
 
 
