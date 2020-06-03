@@ -6,6 +6,6 @@
 def read_file(filename=""):
     """read text file with utf-8
     """
-    with open(filename, "r", encoding="utf-8") as data_file:
+    with open(filename, "r", encoding="utf-8") as data_read:
         data_read = file_tmp.read()
     print(data_read.rstrip())
