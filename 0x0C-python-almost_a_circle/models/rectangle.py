@@ -141,3 +141,12 @@ class Rectangle(Base):
                     self.__x = kwargs[idx]
                 if idx == "y":
                     self.__y = kwargs[idx]
+
+    def to_dictionary(self):
+        """return dictionary of the atributes rectangle
+        """
+        array = ["id", "width", "height", "x", "y"]
+        dict = {}
+        for idx in array:
+            dict.update({idx: getattr(self, idx)})
+        return dict
