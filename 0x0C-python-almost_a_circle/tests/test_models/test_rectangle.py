@@ -5,7 +5,7 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
-import pep8, os
+import pep8
 
 class TestRectangle(unittest.TestCase):
     """ test
