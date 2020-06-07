@@ -12,8 +12,15 @@ from models.square import Square
 class TestBase(unittest.TestCase):
     """test base
     """
+    def tearDown(self):
+        """tears down obj count
+        """
+        Base.__Base__nb_objects = 0
+        self.assertEqual(Base.__Base__nb_objects, 0)
 
     def test_instance(self):
+        """test instance
+        """
         var1 = Base()
         var2 = Base(9)
         var3 = Base(11.5)
@@ -32,9 +39,73 @@ class TestBase(unittest.TestCase):
         self.assertEqual(var7.id, ())
         self.assertEqual(var8.id, [])
 
+    def test_docstring_base(self):
+        """test Docstrings
+        """
+        self.assertIsNotNone(Base.__doc__)
+        self.assertIsNotNone(Base.__init__.__doc__)
+        self.assertIsNotNone(Base.to_json_string.__doc__)
+        self.assertIsNotNone(Base.save_to_file.__doc__)
+        self.assertIsNotNone(Base.from_json_string.__doc__)
+        self.assertIsNotNone(Base.create.__doc__)
+        self.assertIsNotNone(Base.load_from_file.__doc__)
+
+    def test_to_json_string(self):
+        """test methods to_json_string
+        """
+        tjs1 = None
+        tjs2 = [{"hello": 7}]
+        tjs3 = [[1, 4, 8]]
+        tjs4 = []
+
+        self.assertCountEqual(Base.to_json_string(tjs1), "[]")
+        self.assertCountEqual(Base.to_json_string(tjs2), '[{"hello": 7}]')
+        self.assertCountEqual(Base.to_json_string(tjs3), '[[1, 4, 8]]')
+        self.assertCountEqual(Base.to_json_string(tjs4), '[]')
+
+    def test_save_to_file(self):
+        """test save to file
+        """
+        pass
+
+    def test_from_json_string(self):
+        """test from json string
+        """
+        tfjs1_expe = [{"Marlon": 47, "García": "Morales"}]
+        tfjs1_test = Base.to_json_string(tfjs1_expe)
+        self.assertEqual(Base.from_json_string(tfjs1_test), tfjs1_expe)
+
+        tfjs2_expe = [{"Marlon": 47}]
+        tfjs2_test = Base.to_json_string(tfjs2_expe)
+        self.assertEqual(Base.from_json_string(tfjs2_test), tfjs2_expe)
+
+        tfjs3_expe = []
+        tfjs3_test = Base.to_json_string(tfjs3_expe)
+        self.assertEqual(Base.from_json_string(tfjs3_test), tfjs3_expe)
+
+        tfjs4_expe = [[1, 4, 8]]
+        tfjs4_test = Base.to_json_string(tfjs4_expe)
+        self.assertEqual(Base.from_json_string(tfjs4_test), tfjs4_expe)
+
+    def test_create(self):
+        """test create
+        """
+        tc1_expe = {"id": 1, "width": 1, "height": 2, "x": 2, "y": 2}
+        tc1_test = Rectangle.create(**tc1_expe)
+        self.assertEqual(tc1_test.__str__(), "[Rectangle] (1) 2/2 - 1/2")
+
+        tc2_expe = {"id": 2, "size": 3, "x": 4, "y": 5}
+        tc2_test = Square.create(**tc2_expe)
+        self.assertEqual(tc2_test.__str__(), "[Square] (2) 4/5 - 3")
+        
+    def test_load_from_file(self):
+        """test create
+        """
+        pass
+
     def test_style_base(self):
         """test pep8
         """
         style = pep8.StyleGuide()
-        m = style.check_files(["models/rectangle.py"])
+        m = style.check_files(["models/base.py"])
         self.assertEqual(m.total_errors, 0, "fix pep8")
