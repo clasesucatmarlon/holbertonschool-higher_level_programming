@@ -18,6 +18,10 @@ class TestBase(unittest.TestCase):
         Base.__Base__nb_objects = 0
         self.assertEqual(Base.__Base__nb_objects, 0)
 
+    @classmethod
+    def setUpClass(cls):
+        Base._Base__nb_objects = 0
+
     def test_instance(self):
         """test instance
         """
@@ -30,10 +34,10 @@ class TestBase(unittest.TestCase):
         var7 = Base(())
         var8 = Base([])
 
-        self.assertEqual(var1.id, 1)
+        self.assertEqual(var1.id, 3)
         self.assertEqual(var2.id, 9)
         self.assertEqual(var3.id, 11.5)
-        self.assertEqual(var4.id, 2)
+        self.assertEqual(var4.id, 4)
         self.assertEqual(var5.id, 'string')
         self.assertEqual(var6.id, {})
         self.assertEqual(var7.id, ())
@@ -101,7 +105,27 @@ class TestBase(unittest.TestCase):
     def test_load_from_file(self):
         """test create
         """
-        pass
+        tlff1 = Rectangle(10, 7, 2, 8)
+        tlff2 = Rectangle(2, 4)
+
+        rect_save = Rectangle.save_to_file([tlff1, tlff2])
+        rect_list = Rectangle.load_from_file()
+
+        self.assertIsInstance(rect_list[0], Rectangle)
+        self.assertIsInstance(rect_list[1], Rectangle)
+        self.assertEqual(rect_list[0].__str__(), "[Rectangle] (5) 2/8 - 10/7")
+        self.assertEqual(rect_list[1].__str__(), "[Rectangle] (6) 0/0 - 2/4")
+
+        tlff3 = Square(10, 7, 2)
+        tlff4 = Square(8)
+
+        squa_save = Square.save_to_file([tlff3, tlff4])
+        squa_list = Square.load_from_file()
+
+        self.assertIsInstance(squa_list[0], Square)
+        self.assertIsInstance(squa_list[1], Square)
+        self.assertEqual(squa_list[0].__str__(), "[Square] (9) 7/2 - 1")
+        self.assertEqual(squa_list[1].__str__(), "[Square] (10) 0/0 - 1")
 
     def test_style_base(self):
         """test pep8
@@ -109,3 +133,6 @@ class TestBase(unittest.TestCase):
         style = pep8.StyleGuide()
         m = style.check_files(["models/base.py"])
         self.assertEqual(m.total_errors, 0, "fix pep8")
+
+if __name__ == '__main__': 
+    unittest.main()
