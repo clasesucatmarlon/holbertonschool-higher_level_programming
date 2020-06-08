@@ -105,7 +105,7 @@ class Rectangle(Base):
         task 6
         print a rectangle instance
         """
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
+        return "[Rectangle] ({}) {}/{} - {}/{}"\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
