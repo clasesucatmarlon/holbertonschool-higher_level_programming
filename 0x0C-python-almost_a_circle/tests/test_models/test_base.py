@@ -127,8 +127,8 @@ class TestBase(unittest.TestCase):
 
         self.assertIsInstance(squa_list[0], Square)
         self.assertIsInstance(squa_list[1], Square)
-        self.assertEqual(squa_list[0].__str__(), "[Square] (9) 7/2 - 1")
-        self.assertEqual(squa_list[1].__str__(), "[Square] (10) 0/0 - 1")
+        self.assertEqual(squa_list[0].__str__(), "[Square] (9) 7/2 - 10")
+        self.assertEqual(squa_list[1].__str__(), "[Square] (10) 0/0 - 8")
 
     def test_style_base(self):
         """test pep8
