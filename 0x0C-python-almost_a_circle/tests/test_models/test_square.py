@@ -108,5 +108,13 @@ class TestSquare(unittest.TestCase):
         self.assertDictEqual(var3.to_dictionary(), value3)
         self.assertDictEqual(var4.to_dictionary(), value4)
 
+    def test_style_square(self):
+        """
+        Tests for pep8
+        """
+        style = pep8.StyleGuide(quiet=True)
+        p = style.check_files(['models/sauare.py'])
+        self.assertEqual(p.total_errors, 0, "fix pep8")
+
 if __name__ == '__main__':
     unittest.main()
