@@ -20,6 +20,8 @@ class TestBase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        """setup methods
+        """
         Base._Base__nb_objects = 0
 
     def test_instance(self):
