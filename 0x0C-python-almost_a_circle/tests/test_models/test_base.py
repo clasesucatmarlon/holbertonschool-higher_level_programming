@@ -103,7 +103,7 @@ class TestBase(unittest.TestCase):
         tc2_expe = {"id": 2, "size": 3, "x": 4, "y": 5}
         tc2_test = Square.create(**tc2_expe)
         self.assertEqual(tc2_test.__str__(), "[Square] (2) 4/5 - 3")
-        
+
     def test_load_from_file(self):
         """test create
         """
@@ -136,5 +136,5 @@ class TestBase(unittest.TestCase):
         m = style.check_files(["models/base.py"])
         self.assertEqual(m.total_errors, 0, "fix pep8")
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     unittest.main()
