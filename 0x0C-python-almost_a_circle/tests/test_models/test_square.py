@@ -5,6 +5,7 @@
 
 import unittest
 import os
+import pep8
 from io import StringIO
 from unittest.mock import patch
 from models.base import Base
@@ -114,7 +115,10 @@ class TestSquare(unittest.TestCase):
         """
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/square.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
+
+        for k in p.messages:
+            print("{}:{}".format(k, p.messages[key]))
+        self.assertEqual(p.total_errors, 0)
 
 if __name__ == '__main__':
     unittest.main()
