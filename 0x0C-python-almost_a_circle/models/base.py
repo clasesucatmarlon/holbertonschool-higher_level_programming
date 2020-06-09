@@ -74,12 +74,15 @@ class Base:
         task 19
         """
         array = []
-        with open(cls.__name__ + ".json", mode="r") as data_file:
-            text = data_file.read()
-        text = cls.from_json_string(text)
-        for item in text:
-            if type(item) == dict:
-                array.append(cls.create(**item))
-            else:
-                array.append(item)
-        return array
+        try:
+            with open(cls.__name__ + ".json", mode="r") as data_file:
+                text = data_file.read()
+            text = cls.from_json_string(text)
+            for item in text:
+                if type(item) == dict:
+                    array.append(cls.create(**item))
+                else:
+                    array.append(item)
+            return array
+        except:
+            return []
