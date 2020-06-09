@@ -94,7 +94,7 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError, msg="y must be >=0"):
             varr41 = Rectangle(10, 2, 3, -1)
 
-    def test_style_base(self):
+    def test_style_rectangle(self):
         """
         Tests for pep8
         """
