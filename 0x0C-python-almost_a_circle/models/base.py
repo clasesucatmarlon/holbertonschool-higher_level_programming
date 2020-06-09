@@ -4,6 +4,8 @@
 
 
 import json
+import turtle
+import random
 
 
 class Base:
@@ -86,3 +88,49 @@ class Base:
             return array
         except:
             return []
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load fron file cvs
+        """
+        aux = []
+        dict = {}
+        with open(cls.__name__ + ".cvs", mode="r") as data_file:
+            reader_from = csv.DictReader(data_file)
+            for x in reader_from:
+                for key, value in dict(x).items():
+                    aux[key] = int(value)
+                    aux.append(cls.create(dict))
+        return aux
+
+    @staticmethod 
+    def draw(list_rectangles, list_squares): 
+        """draw our shapes using the turtle module""" 
+        colors_tortle = ["red", "purple", "violet", "black", 
+                  "sienna", "orange"]
+        colors_back = ["light yellow", "cornflower blue"]
+        print(list_rectangles)
+        print(list_squares)
+        
+        window = turtle.Screen()
+        turtle.setup(1200, 800)
+        window.bgcolor(random.choice(colors_back))
+        window.title("Draws Turtle....")
+        timmy = turtle.Turtle()
+        turtle.shape("turtle")
+
+        for var in list_rectangles + list_squares:
+            turtle.color(random.choice(colors_tortle))
+            turtle.pendown()
+            turtle.fillcolor(random.choice(colors_tortle))
+            turtle.begin_fill()
+            for i in range(4):
+                if i == 0 or i == 2:
+                    turtle.forward(var.width)
+                else:
+                    turtle.forward(var.height)
+                turtle.left(90)
+            turtle.end_fill()
+            turtle.penup()
+            turtle.goto(random.randint(-400, 200), random.randint(-400, 200))
+        turtle.exitonclick()
