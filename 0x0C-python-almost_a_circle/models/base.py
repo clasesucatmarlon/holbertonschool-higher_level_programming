@@ -103,15 +103,39 @@ class Base:
                     aux.append(cls.create(dict))
         return aux
 
-    @staticmethod 
-    def draw(list_rectangles, list_squares): 
-        """draw our shapes using the turtle module""" 
-        colors_tortle = ["red", "purple", "violet", "black", 
-                  "sienna", "orange"]
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves to csv file
+        """
+        aux = [item.to_dictionary() for item in list_objs]
+        with open(cls.__name__ + ".csv", mode="w") as data_file:
+            write = csv.DictWriter(data_file, aux[0].keys())
+            write.writeheader()
+            write.writerows(aux)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Loads from csv file
+        """
+        aux = []
+        aux_dict = {}
+        with open(cls.__name__ + ".csv", mode="r") as data_file:
+            read_from = csv.DictReader(data_file)
+            for item in read_from:
+                for k, v in dict(item).items():
+                    aux_dict[k] = int(v)
+                aux.append(cls.create(**aux_dict))
+        return aux
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draw shapes using the turtle module
+        """
+        colors_tortle = ["red", "purple", "black", "sienna", "orange"]
         colors_back = ["light yellow", "cornflower blue"]
         print(list_rectangles)
         print(list_squares)
-        
+
         window = turtle.Screen()
         turtle.setup(1200, 800)
         window.bgcolor(random.choice(colors_back))
