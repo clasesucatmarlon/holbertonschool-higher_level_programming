@@ -113,7 +113,7 @@ class TestSquare(unittest.TestCase):
         Tests for pep8
         """
         style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/sauare.py'])
+        p = style.check_files(['models/square.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
 if __name__ == '__main__':
