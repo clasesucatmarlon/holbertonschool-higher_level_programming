@@ -1,13 +1,17 @@
-#!/usr/bin/python3 
-"""Unittest for class Square 
-""" 
+#!/usr/bin/python3
+"""Unittest for class Square
+"""
+
+
 import unittest
 import os
 from io import StringIO
 from unittest.mock import patch
-from models.base import Base 
+from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+
+
 class TestSquare(unittest.TestCase):
     """Testing Square
     """
@@ -103,6 +107,6 @@ class TestSquare(unittest.TestCase):
         self.assertDictEqual(var2.to_dictionary(), value2)
         self.assertDictEqual(var3.to_dictionary(), value3)
         self.assertDictEqual(var4.to_dictionary(), value4)
-        
-if __name__ == '__main__': 
+
+if __name__ == '__main__':
     unittest.main()
