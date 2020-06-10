@@ -6,6 +6,7 @@
 import json
 import turtle
 import random
+import csv
 
 
 class Base:
@@ -117,14 +118,16 @@ class Base:
     def load_from_file_csv(cls):
         """Loads from csv file
         """
+        fieldnames = ["id", "width", "height", "x", "y"]
         aux = []
-        aux_dict = {}
         try:
             with open(cls.__name__ + ".csv", mode="r") as data_file:
-                read_from = csv.DictReader(data_file)
+                read_from = csv.DictReader(data_file, fieldnames=fieldnames)
                 for item in read_from:
+                    aux_dict = {}
                     for k, v in dict(item).items():
                         aux_dict[k] = int(v)
+                    print(item)
                     aux.append(cls.create(**aux_dict))
             return aux
         except:
