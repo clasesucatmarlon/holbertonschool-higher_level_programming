@@ -119,13 +119,16 @@ class Base:
         """
         aux = []
         aux_dict = {}
-        with open(cls.__name__ + ".csv", mode="r") as data_file:
-            read_from = csv.DictReader(data_file)
-            for item in read_from:
-                for k, v in dict(item).items():
-                    aux_dict[k] = int(v)
-                aux.append(cls.create(**aux_dict))
-        return aux
+        try:
+            with open(cls.__name__ + ".csv", mode="r") as data_file:
+                read_from = csv.DictReader(data_file)
+                for item in read_from:
+                    for k, v in dict(item).items():
+                        aux_dict[k] = int(v)
+                    aux.append(cls.create(**aux_dict))
+            return aux
+        except:
+            return []
 
     @staticmethod
     def draw(list_rectangles, list_squares):
