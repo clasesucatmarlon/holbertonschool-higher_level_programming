@@ -118,7 +118,11 @@ class Base:
     def load_from_file_csv(cls):
         """Loads from csv file
         """
-        fieldnames = ["id", "width", "height", "x", "y"]
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        else:
+            fieldnames = ["id", "size", "x", "y"]
+
         aux = []
         try:
             with open(cls.__name__ + ".csv", mode="r") as data_file:
@@ -127,7 +131,6 @@ class Base:
                     aux_dict = {}
                     for k, v in dict(item).items():
                         aux_dict[k] = int(v)
-                    print(item)
                     aux.append(cls.create(**aux_dict))
             return aux
         except:
