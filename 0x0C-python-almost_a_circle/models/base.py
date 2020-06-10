@@ -94,11 +94,17 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Saves to csv file
         """
+        if cls.__name__ == "Rectangle":
+            fieldnames = ["id", "width", "height", "x", "y"]
+        else:
+            fieldnames = ["id", "size", "x", "y"]
+
         aux = [item.to_dictionary() for item in list_objs]
+
         with open(cls.__name__ + ".csv", mode="w") as data_file:
-            write = csv.DictWriter(data_file, aux[0].keys())
-            write.writeheader()
-            write.writerows(aux)
+            write = csv.DictWriter(data_file, fieldnames=fieldnames)
+            for item in aux:
+                write.writerows(item)
 
     @classmethod
     def load_from_file_csv(cls):
@@ -128,8 +134,6 @@ class Base:
         """
         colors_tortle = ["red", "purple", "black", "sienna", "orange"]
         colors_back = ["light yellow", "cornflower blue"]
-        print(list_rectangles)
-        print(list_squares)
 
         window = turtle.Screen()
         turtle.setup(1200, 800)
