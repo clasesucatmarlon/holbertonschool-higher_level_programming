@@ -91,20 +91,6 @@ class Base:
             return []
 
     @classmethod
-    def load_from_file_csv(cls):
-        """load fron file cvs
-        """
-        aux = []
-        dict = {}
-        with open(cls.__name__ + ".cvs", mode="r") as data_file:
-            reader_from = csv.DictReader(data_file)
-            for x in reader_from:
-                for key, value in dict(x).items():
-                    aux[key] = int(value)
-                    aux.append(cls.create(dict))
-        return aux
-
-    @classmethod
     def save_to_file_csv(cls, list_objs):
         """Saves to csv file
         """
