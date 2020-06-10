@@ -116,7 +116,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Loads from csv file
+        """Loads from csv file local
         """
         if cls.__name__ == "Rectangle":
             fieldnames = ["id", "width", "height", "x", "y"]
