@@ -1,2 +1,2 @@
--- remove record fron a table
+-- remove record from a table
 DELETE FROM second_table WHERE score <= 5;
