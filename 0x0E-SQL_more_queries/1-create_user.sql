@@ -2,7 +2,7 @@
 
 -- create: user1
 CREATE USER IF NOT EXISTS user_0d_1@localhost
-IDENTIFIED BY 'user1_12345';
+IDENTIFIED BY 'user_0d_1_pwd';
 
 -- grant privileges: user1
 GRANT ALL ON *.* TO user_0d_1@localhost;
