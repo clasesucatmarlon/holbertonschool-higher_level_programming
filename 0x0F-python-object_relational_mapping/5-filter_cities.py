@@ -34,7 +34,7 @@ def filterName():
                 FROM
                     states
                 WHERE
-                    name=%s
+                    name = %s
             )
         ORDER BY
             cities.id ASC
