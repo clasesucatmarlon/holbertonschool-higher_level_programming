@@ -1,30 +1,22 @@
 #!/usr/bin/python3
+# List all states fron the database hbtn_0e_0_usa
 import sys
 import MySQLdb
 
+host = 'localhost'
+port = 3306
+user = sys.argv[1]
+passwd = sys.argv[2]
+database = sys.argv[3]
 
-if __name__ == "__main__":
-    """ validations numeber of arguments
-    """
-    if len(argv) != 4:
-        print("Syntax: ./0-select_states.py <username> <password> <database name>")
-        exit(1)
+db = MySQLdb.connect(host=host, port=port, user=user, passwd=passwd, db=database)
 
-    host = 'localhost'
-    port = 3306
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    database = sys.argv[3]
+cur = db.cursor()
 
-    cone = MySQLdb.connect(host=host, port=port, user=user, passwd=passwd, db=database)
+cur.execute('SELECT * FROM states ORDER BY states.id ASC')
 
-    cur = db.cursor()
+states = cur.fetchall()
 
-    cursor.execute('SELECT * FROM states ORDER BY states.id ASC')
-
-    states = cur.fechall()
-
-    for state in states:
-        print(state)
-    cur.close()
-    db.close()
+for state in states:
+    print(state)
+db.close()
