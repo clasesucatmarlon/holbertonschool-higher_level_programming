@@ -10,13 +10,14 @@ user = sys.argv[1]
 passwd = sys.argv[2]
 database = sys.argv[3]
 
-db = MySQLdb.connect(host=host, port=port, user=user, passwd=passwd, db=database)
+db = MySQLdb.connect(host=host, port=port, user=user,
+                     passwd=passwd, db=database)
 
 cur = db.cursor()
 
 cur.execute("""
     SELECT
-        cities.id, cities.name, states.name 
+        cities.id, cities.name, states.name
     FROM
         cities, states
     WHERE
