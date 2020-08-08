@@ -3,13 +3,12 @@
 List all states with a name staring with N (upper N)
 from the database hbtn_0e_0_usa
 """
-
-
 import sys
 import MySQLdb
 
-if __name__ == "__main__":
-    """ main
+
+def filter():
+    """ filters states with a name staring with N (upper N)
     """
     host = 'localhost'
     port = 3306
@@ -30,3 +29,7 @@ if __name__ == "__main__":
     for state in states:
         print(state)
     db.close()
+
+
+if __name__ == "__main__":
+    filter()
