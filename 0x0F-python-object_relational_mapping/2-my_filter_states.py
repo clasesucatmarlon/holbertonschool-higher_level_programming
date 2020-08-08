@@ -5,7 +5,7 @@ import sys
 import MySQLdb
 
 
-def filter():
+def filterName():
     """ takes in an argument and displays all values in the states table
     """
     host = 'localhost'
@@ -20,8 +20,10 @@ def filter():
 
     cur = db.cursor()
 
-    cur.execute('SELECT * FROM states WHERE name = "{}" ORDER BY\
-                 states.id ASC'.format(name))
+    sql = 'SELECT * FROM states WHERE name = "{}" ORDER BY\
+                 states.id ASC'.format(name)
+
+    cur.execute(sql)
 
     states = cur.fetchall()
 
@@ -31,4 +33,4 @@ def filter():
 
 
 if __name__ == "__main__":
-    filter()
+    filterName()
