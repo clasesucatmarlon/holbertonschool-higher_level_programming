@@ -38,7 +38,8 @@ def filterName():
     states = cur.fetchall()
 
     for state in states:
-        print(state)
+        if state[1] == name:
+            print(state)
     db.close()
 
 
