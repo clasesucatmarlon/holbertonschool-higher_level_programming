@@ -6,6 +6,7 @@ of hbtn_0e_0_usa where name matches the argument
 import sys
 import MySQLdb
 
+
 def filterName():
     """ filter to names
     """
@@ -17,12 +18,23 @@ def filterName():
     name = sys.argv[4]
 
     db = MySQLdb.connect(host=host, port=port, user=user,
-                        passwd=passwd, db=database)
+                         passwd=passwd, db=database)
 
     cur = db.cursor()
 
-    cur.execute('SELECT * FROM states WHERE name = "{:s}" ORDER BY\
-                states.id ASC'.format(name))
+    """     cur.execute('SELECT * FROM states WHERE name = "{:s}" ORDER BY
+                 states.id ASC'.format(name))
+    """
+
+    cur.execute("""
+        SELECT *
+        FROM
+            states
+        WHERE
+            name = %s
+        ORDER BY
+            states.id ASC
+        """, (name, ))
 
     states = cur.fetchall()
 
