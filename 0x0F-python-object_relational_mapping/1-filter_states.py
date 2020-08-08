@@ -11,11 +11,13 @@ user = sys.argv[1]
 passwd = sys.argv[2]
 database = sys.argv[3]
 
-db = MySQLdb.connect(host=host, port=port, user=user, passwd=passwd, db=database)
+db = MySQLdb.connect(host=host, port=port, user=user,
+                     passwd=passwd, db=database)
 
 cur = db.cursor()
 
-cur.execute('SELECT * FROM states WHERE name LIKE BINARY "N%" ORDER BY states.id ASC')
+cur.execute('SELECT * FROM states WHERE name LIKE
+            BINARY "N%" ORDER BY states.id ASC')
 
 states = cur.fetchall()
 
