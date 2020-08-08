@@ -42,14 +42,11 @@ def filterName():
 
     cities = cur.fetchall()
 
-    long = len(cities)
-    x = 1
+    list = []
     for city in cities:
-        if x < long:
-            print(city[0], end=", ")
-            x += 1
-        else:
-            print(city[0])
+        list.append(city[0])
+
+    print(", ".join(list))
 
     db.close()
 
