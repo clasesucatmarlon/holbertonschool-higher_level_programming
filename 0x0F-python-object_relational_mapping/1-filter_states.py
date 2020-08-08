@@ -4,6 +4,7 @@ List all states with a name staring with N (upper N)
 from the database hbtn_0e_0_usa
 """
 
+
 import sys
 import MySQLdb
 
