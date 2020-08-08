@@ -5,7 +5,9 @@ import sys
 import MySQLdb
 
 
-if __name__ == "__main__":
+def filter():
+    """ takes in an argument and displays all values in the states table
+    """
     host = 'localhost'
     port = 3306
     user = sys.argv[1]
@@ -26,3 +28,7 @@ if __name__ == "__main__":
     for state in states:
         print(state)
     db.close()
+
+
+if __name__ == "__main__":
+    filter()
