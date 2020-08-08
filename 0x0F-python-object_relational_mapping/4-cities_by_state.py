@@ -1,33 +1,43 @@
 #!/usr/bin/python3
-# Write a script that lists all cities from the database hbtn_0e_4_usa
-
+""" Write a script that lists all cities from the database hbtn_0e_4_usa
+"""
 import sys
 import MySQLdb
 
-host = 'localhost'
-port = 3306
-user = sys.argv[1]
-passwd = sys.argv[2]
-database = sys.argv[3]
 
-db = MySQLdb.connect(host=host, port=port, user=user,
-                     passwd=passwd, db=database)
+def filterName():
+    """ filter to names
+    """
+    host = 'localhost'
+    port = 3306
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    database = sys.argv[3]
 
-cur = db.cursor()
+    db = MySQLdb.connect(host=host, port=port, user=user,
+                         passwd=passwd, db=database)
 
-cur.execute("""
-    SELECT
-        cities.id, cities.name, states.name
-    FROM
-        cities, states
-    WHERE
-        cities.state_id=states.id
-    ORDER BY
-        cities.id ASC
-""")
+    cur = db.cursor()
 
-states = cur.fetchall()
+    cur.execute("""
+        SELECT
+            cities.id, cities.name, states.name
+        FROM
+            cities, states
+        WHERE
+            cities.state_id=states.id
+        ORDER BY
+            cities.id ASC
+    """)
 
-for state in states:
-    print(state)
-db.close()
+    states = cur.fetchall()
+
+    for state in states:
+        print(state)
+    db.close()
+
+
+if __name__ == "__main__":
+    """ function main
+    """
+    filterName()
