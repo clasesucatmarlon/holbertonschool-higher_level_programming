@@ -22,10 +22,18 @@ def filterName():
 
     cur = db.cursor()
 
-    sql = 'SELECT * FROM states WHERE name = "{}" ORDER BY\
-                 states.id ASC'.format(name)
+    # sql = 'SELECT * FROM states WHERE name = "{}" ORDER BY\
+    #             states.id ASC'.format(name)
 
-    cur.execute(sql)
+    cur.execute("""
+        SELECT *
+        FROM
+            states
+        WHERE
+            name = %s
+        ORDER BY
+            states.id ASC
+        """, (name,))
 
     states = cur.fetchall()
 
