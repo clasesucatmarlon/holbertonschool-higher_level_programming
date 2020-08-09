@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """
 script that deleted for a name state to database hbtn_0e_6_usa
 """
