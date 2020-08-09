@@ -24,4 +24,4 @@ if __name__ == "__main__":
     for data in filter:
         session.delete(data)
     session.commit()
-
+    session.close()
