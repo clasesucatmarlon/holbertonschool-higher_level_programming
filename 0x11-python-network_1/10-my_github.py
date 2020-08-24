@@ -15,7 +15,7 @@ def search_api_github():
     password = argv[2] """
 
     """ result = requests.get(
-        "https://api.github.com/users/{}".format(argv[1]), 
+        "https://api.github.com/users/{}".format(argv[1]),
         auth=HTTPBasicAuth(argv[1], argv[2])) """
 
     """result = requests.get("https://api.github.com/user/",
