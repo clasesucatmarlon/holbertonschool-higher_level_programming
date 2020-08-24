@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-fetcher https://intranet.hbtn.io/status passed into arg
+fetcher https://intranet.hbtn.io/status passed into args
 """
 import urllib.request
 from sys import argv
