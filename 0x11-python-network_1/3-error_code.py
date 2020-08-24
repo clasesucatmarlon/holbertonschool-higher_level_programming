@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-send request
+send request into arg
 """
 import urllib.request
 import urllib.error
