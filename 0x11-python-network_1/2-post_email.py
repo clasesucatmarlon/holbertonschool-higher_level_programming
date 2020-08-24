@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-send post
+send post into arg
 """
 import urllib.parse
 import urllib.request
