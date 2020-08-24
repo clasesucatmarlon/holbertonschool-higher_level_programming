@@ -11,18 +11,18 @@ from sys import argv
 def search_api_github():
     """ Search into api github
     """
-    """     user = argv[1]
-    password = argv[2] """
+    user = argv[1]
+    password = argv[2]
 
-    """ result = requests.get(
+    result = requests.get(
         "https://api.github.com/users/{}".format(argv[1]),
-        auth=HTTPBasicAuth(argv[1], argv[2])) """
+        auth=HTTPBasicAuth(user, password))
 
     """result = requests.get("https://api.github.com/user/",
-                          auth=HTTPBasicAuth(argv[1], argv[2]))"""
+                          auth=HTTPBasicAuth(argv[1], argv[2]))
 
     result = requests.get('https://api.github.com/user',
-                          auth=(argv[1], argv[2]))
+                          auth=(argv[1], argv[2]))"""
 
     print(result.json().get('id'))
 
